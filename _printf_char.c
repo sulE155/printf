@@ -9,11 +9,11 @@ int _printf(const char *format, ...)
 {
 	int c;
 
+	int count = 0;
+
 	va_list arg;
 
-	va_start(args, format);
-
-	int Count = 0;
+	va_start(arg, format);
 
 	while (*format != '\0')
 	{
@@ -22,18 +22,18 @@ int _printf(const char *format, ...)
 			format++;
 			if (*format == 'c')
 			{
-				c = va_arg(args, int);
+				c = va_arg(arg, int);
 				_putchar(c);
-				Count++;
+				count++;
 			}
 		}
 		else
 		{
 			_putchar(*format);
-			Count++;
+			count++;
 		}
 		format++;
 	}
-	va_end(args);
+	va_end(arg);
 	return (count);
 }

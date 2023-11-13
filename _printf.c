@@ -6,11 +6,11 @@
  */
 int _printf_percentage(const char *format, ...)
 {
-	va_list args;
-
-	va_start(args, format);
-
 	int count = 0;
+
+	va_list arg;
+
+	va_start(arg, format);
 
 	while (*format != '\0')
 	{
@@ -26,6 +26,6 @@ int _printf_percentage(const char *format, ...)
 		}
 		format++;
 	}
-	va_end(args);
-	return (coun)t;
+	va_end(arg);
+	return (count);
 }
