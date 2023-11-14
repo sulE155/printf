@@ -10,6 +10,6 @@ int _printf(const char *format, ...);
 int _printf_percentage(const char *format, ...);
 int _printf_string(const char *format, const char *s);
 int _putchar(char ch);
-int _printf_binary(const char *format, ...);
+int _printf_binary(unsigned int num, int x);
 int _printf_int(const char *format, int num);
 #endif
