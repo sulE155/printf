@@ -12,7 +12,7 @@ int _printf_hexadecimal(const char *format, ...)
 
 	va_list args;
 
-	va_sart(args, format);
+	va_start(args, format);
 
 	while (*format != '\0')
 	{
@@ -21,13 +21,13 @@ int _printf_hexadecimal(const char *format, ...)
 			x = va_arg(args, int);
 			if (*(format + 1) == 'X')
 			{
-				n + = printf("%X", value);
+				n += _printf("%X", x);
 			}
 			else
 			{
-				n + = printf("%x", value);
+				n += _printf("%x", x);
 			}
-			format + = 2;
+			format += 2;
 		}
 		else
 		{

@@ -7,20 +7,20 @@
  */
 int _printf_unsigned_int(const char *ptr, ...)
 {
-	va_list args;
-
-	va_start(args, ptr);
-
 	unsigned int num;
 
 	int count = 0;
+
+	va_list args;
+
+	va_start(args, ptr);
 
 	while (*ptr != '\0')
 	{
 		if (*ptr == 'u')
 		{
 			num = va_arg(args, unsigned int);
-			count += _putchar("%u", num);
+			count += _printf("%u", num);
 		}
 		else
 		{

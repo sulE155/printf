@@ -1,7 +1,4 @@
 #include "main.h"
-#include <stdio.h>
-#include <stdarg.h>
-#include <unistd.h>
 
 #define BUFFER_SIZE 1024
 
@@ -13,22 +10,22 @@
  */
 int _printf_buffer(const char *format, ...)
 {
+	int octal_num;
+        int count = 0;
+        char buffer[BUFFER_SIZE];
+        int buffer_index = 0;
+
 	va_list args;
 
 	va_start(args, format);
-
-	int octal_num;
-	int count = 0;
-	char buffer[BUFFER_SIZE];
-	int buffer_index = 0;
 
 	while (*format)
 	{
 		if (*format == '%' && *(format + 1) == 'o')
 		{
-			octal_number = va_arg(args, int);
+			octal_num = va_arg(args, int);
 			buffer_index += snprintf(buffer + buffer_index,
-					BUFFER_SIZE - buffer_index, "%o", octal_number);
+					BUFFER_SIZE - buffer_index, "%o", octal_num);
 			if (buffer_index >= BUFFER_SIZE)
 			{
 				write(STDOUT_FILENO, buffer, buffer_index);

@@ -1,4 +1,4 @@
-#include "main"
+#include "main.h"
 /**
  * _printf_str_hexa - prints the string
  * @format: Function parameter
@@ -10,7 +10,7 @@ int _printf_str_hexa(const char *format, ...)
 
 	int count = 0;
 
-	chat *str;
+	char *str;
 
 	va_start(args, format);
 
@@ -18,7 +18,7 @@ int _printf_str_hexa(const char *format, ...)
 	{
 		if (*format == '%' && *(format + 1) == 'S')
 		{
-			*str = va_arg(args, char*);
+			str = va_arg(args, char*);
 			while (*str)
 			{
 				if (*str >= 32 && *str < 127)

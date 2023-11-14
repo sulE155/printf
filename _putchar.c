@@ -6,5 +6,5 @@
  */
 int _putchar(char ch)
 {
-	return (write(1, &ch, 1));
+        return (write(1, &ch, 1));
 }
