@@ -29,14 +29,14 @@ int _printf_int(va_list args, int x)
 	}
 	while (num1 > 0)
 	{
-		while (i < digits)
+		while (i < num1)
 		{
 			pow10 *= 10;
 			i++;
 		}
 		num2 = num / pow10;
-		x += _putchar(digit + '0');
-		num -= digit * pow10;
+		x += _putchar(num2 + '0');
+		num -= num2 * pow10;
 		num1--;
 	}
 	return (x);
