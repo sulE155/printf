@@ -3,28 +3,41 @@
 
 /**
  * _printf_int - function that prints integer number
- * @format: Function Argument 1
- * @num: Function Argument 2
+ * @args: Function Argument 1
+ * @x: Function Argument 2
  * Return: Integer number
  */
-int _printf_int(const char *format, int num)
+int _printf_int(va_list args, int x)
 {
+	int num = va_arg(args, int);
 	int num1 = 0;
+	int temp = num;
+	int num2;
+	int pow10 = 1;
+	int i = 1;
 
-	while (*format != '\0')
+	if (num < 0)
 	{
-		if (*format == '%' && (*(format + 1) == 'd' || *(format + 1) == 'i'))
-		{
-			_printf("%d", num);
-			num1++;
-			format += 2;
-		}
-		else
-		{
-			_putchar(*format);
-			num1++;
-			format++;
-		}
+		x += _putchar('-');
+		num = -num;
+		temp = num;
 	}
-	return (num1);
+	while (temp != 0)
+	{
+		num1++;
+		temp /= 10;
+	}
+	while (num1 > 0)
+	{
+		while (i < digits)
+		{
+			pow10 *= 10;
+			i++;
+		}
+		num2 = num / pow10;
+		x += _putchar(digit + '0');
+		num -= digit * pow10;
+		num1--;
+	}
+	return (x);
 }
