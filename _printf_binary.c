@@ -7,38 +7,35 @@
  */
 int _printf_binary(const char *format, ...)
 {
-	unsigned int
+	unsigned int num1;
 
-	int n = 0;
+	int n = 0, count = 0;
 
 	va_list args;
 
 	va_start(args, format);
 
-	int num1 = 0;
-
 	while (*format != '\0')
 	{
-		if (*format == '%' &&
-*(format + 1) == 'b')
+		if (*format == '%' && *(format + 1) == 'b')
 		{
-			num = va_arg(args, unsigned int);
-			while (num > 0)
+			num1 = va_arg(args, unsigned int);
+			while (num1 > 0)
 			{
-				_putchar('0' + num % 2);
-				num /= 2;
-				n++;
+				_putchar('0' + num1 % 2);
+				num1 /= 2;
+				count++;
 			}
-			num1 += n;
+			n += count;
 			format += 2;
 		}
 		else
 		{
 			_putchar(*format);
 			num1++;
-			format++;
+			n++;
 		}
 	}
 	va_end(args);
-	return (num1);
+	return (n);
 }

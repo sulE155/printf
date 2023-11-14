@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _printf_int - function that prints integer number
@@ -12,10 +13,9 @@ int _printf_int(const char *format, int num)
 
 	while (*format != '\0')
 	{
-		if (*format == '%' &&
-(*(format + 1) == 'd' || *(format + 1) == 'i'))
+		if (*format == '%' && (*(format + 1) == 'd' || *(format + 1) == 'i'))
 		{
-			printf("%d", num);
+			_printf("%d", num);
 			num1++;
 			format += 2;
 		}
