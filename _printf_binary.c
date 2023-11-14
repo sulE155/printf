@@ -32,8 +32,8 @@ int _printf_binary(const char *format, ...)
 		else
 		{
 			_putchar(*format);
-			num1++;
 			n++;
+			format++;
 		}
 	}
 	va_end(args);
