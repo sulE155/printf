@@ -1,43 +1,29 @@
 #include "main.h"
 #include <stdio.h>
-
 /**
- * _printf_int - function that prints integer number
- * @args: Function Argument 1
- * @x: Function Argument 2
+ * _printf_int - Function that prints integer number
+ * @format: Function parameter 1
+ * @num: Function parameter 2
  * Return: Integer number
  */
-int _printf_int(va_list args, int x)
+int _printf_int(const char *format, int num)
 {
-	int num = va_arg(args, int);
 	int num1 = 0;
-	int temp = num;
-	int num2;
-	int pow10 = 1;
-	int i = 1;
 
-	if (num < 0)
+	while (*format != '\0')
 	{
-		x += _putchar('-');
-		num = -num;
-		temp = num;
-	}
-	while (temp != 0)
-	{
-		num1++;
-		temp /= 10;
-	}
-	while (num1 > 0)
-	{
-		while (i < num1)
+		if (*format == '%' && (*(format + 1) == 'd' || *(format + 1) == 'i'))
 		{
-			pow10 *= 10;
-			i++;
+			_printf("%d", num);
+			num1++;
+			format += 2;
 		}
-		num2 = num / pow10;
-		x += _putchar(num2 + '0');
-		num -= num2 * pow10;
-		num1--;
+		else
+		{
+			_putchar(*format);
+			num1++;
+			format++;
+		}
 	}
-	return (x);
+	return (num1);
 }
