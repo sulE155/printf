@@ -12,4 +12,7 @@ int _printf_string(const char *format, const char *s);
 int _putchar(char ch);
 int _printf_binary(unsigned int num, int x);
 int _printf_int(va_list args, int x);
+int _printf_hexadecimal(const char *format, ...);
+int _printf_unsigned_int(const char *ptr, ...);
+int _printf_ocat_int(const char *format, ...);
 #endif
