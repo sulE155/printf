@@ -18,4 +18,6 @@ int _printf(const char *format, ...);
 int _printf_int(const char *format, int num);
 int _printf_str_hexa(const char *format, ...);
 int _printf_unsigned_int(const char *ptr, ...);
+int _pointer_pointer(const char *format, ...);
+int _printf_sign(const char *format, ...);
 #endif
