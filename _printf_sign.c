@@ -14,7 +14,7 @@ int _printf_sign(const char *format, ...)
 
 	while (*ptr)
 	{
-		if (*ptr == '%' && (ptr[1] == '+' || ptr[1] == '#' || ptr[1] == ''))
+		if (*ptr == '%' && (ptr[1] == '+' || ptr[1] == '#' || ptr[1] == ' '))
 		{
 			switch (ptr[1])
 			{
@@ -24,8 +24,8 @@ int _printf_sign(const char *format, ...)
 				case '#':
 				_putchar('#');
 				break;
-				case'':
-				_putchar('');
+				case' ':
+				_putchar(' ');
 				break;
 				default:
 				break;

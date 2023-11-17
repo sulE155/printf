@@ -7,13 +7,14 @@
  */
 int _pointer_pointer(const char *format, ...)
 {
-	if (format == NULL)
-		return (-1);
 	void *ptr;
 
 	int count = 0;
 
 	va_list args;
+
+	if (format == NULL)
+		return (-1);
 
 	va_start(args, format);
 
@@ -21,7 +22,7 @@ int _pointer_pointer(const char *format, ...)
 	{
 		if (*format == '%' && *(format + 1) == 'p')
 		{
-			ptr = va_arg(args, void);
+			ptr = va_arg(args, void*);
 			_printf("%p", ptr);
 			count += sizeof(void *) * 2;
 			format += 2;
